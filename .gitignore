@@ -1,2 +1,8 @@
 # Python Virtual Environment
 venv/*
+
+# Cache files
+*pycache*
+
+# IDE files
+.idea/*

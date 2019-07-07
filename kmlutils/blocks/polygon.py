@@ -1,6 +1,6 @@
 from __future__ import annotations
 from typing import List
-from .coordinates import Coordinates
+from .point import Point
 import json
 
 
@@ -9,17 +9,17 @@ class Polygon:
 
     def __init__(self):
         """Creates a Polygon object."""
-        self._coordinates: List[Coordinates] = []
+        self._coordinates: List[Point] = []
 
-    def add_coordinate(self, coordinate: Coordinates) -> Polygon:
-        """Adds a Coordinate object to the list of the polygon coordinates."""
-        if coordinate in self._coordinates:
-            raise ValueError('Duplicate coordinate {}.'.format(coordinate.serialize()))
+    def add_point(self, point: Point) -> Polygon:
+        """Adds a Point object to the list of the polygon coordinates."""
+        if point in self._coordinates:
+            raise ValueError('Duplicate point {} in polygon coordinates.'.format(point.serialize()))
 
-        self._coordinates.append(coordinate)
+        self._coordinates.append(point)
         return self
 
-    def get_coordinates(self) -> List[Coordinates]:
+    def get_coordinates(self) -> List[Point]:
         """Returns the current polygon's coordinates."""
         return self._coordinates
 

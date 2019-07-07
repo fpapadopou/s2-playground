@@ -1,13 +1,13 @@
 import json
 
 
-class Coordinates:
-    """Represents a lat-lng pair."""
+class Point:
+    """Represents a point on the xy-plane."""
 
     def __init__(self, lat: float, lng: float):
-        """Create a Coordinates object."""
+        """Create a Point object."""
 
-        self._validate_coords(lat, lng)
+        self.validate_coordinates(lat, lng)
 
         self._lat = lat
         self._lng = lng
@@ -24,7 +24,8 @@ class Coordinates:
         """Returns a JSON representation of the object."""
         return json.dumps({'lat': self._lat, 'lng': self._lng})
 
-    def _validate_coords(self, lat, lng) -> None:
+    @staticmethod
+    def validate_coordinates(lat: float, lng: float) -> None:
         """Validates coordinates input."""
 
         if lat is None or lng is None:
